@@ -33,6 +33,8 @@ public class NewstudentRegister extends BaseActivity {
 
 						String name = ((EditText) findViewById(R.id.name))
 								.getText().toString().trim();
+						String lname = ((EditText) findViewById(R.id.lname))
+								.getText().toString().trim();
 						String pass = ((EditText) findViewById(R.id.pass))
 								.getText().toString().trim();
 						String Cpass = ((EditText) findViewById(R.id.cpass))
@@ -42,7 +44,7 @@ public class NewstudentRegister extends BaseActivity {
 						if (name != "" && pass != "" && Cpass != ""
 								&& faculty != "") {
 							if (pass.equals(Cpass)) {
-								new Attemptsave(name, pass, faculty).execute();
+								new Attemptsave(name,lname, pass, faculty).execute();
 							} else {
 								Toast.makeText(getApplicationContext(),
 										"Password Not Matched",
@@ -65,14 +67,16 @@ public class NewstudentRegister extends BaseActivity {
 		return dialog;
 	}
 
-	class Attemptsave extends AsyncTask<String, String, String> {
+	class Attemptsave extends AsyncTask<String,String, String> {
 		boolean success = false;
-		String name, password, faculty;
+		String name, password, faculty,lname;
 
-		public Attemptsave(String name, String pass, String faculty) {
+		public Attemptsave(String name,String lname, String pass, String faculty) {
 			this.name = name;
+			this.lname=lname;
 			this.password = pass;
 			this.faculty = faculty;
+			
 		}
 
 		@SuppressWarnings("deprecation")
@@ -87,8 +91,8 @@ public class NewstudentRegister extends BaseActivity {
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
 			ServerRequest req = new ServerRequest();
-			String url = LOGIN_URL + "add&name=" + name + "&password="
-					+ password + "&faculty=" + faculty;
+			String url = LOGIN_URL + "add&name=" + name + "&lname="
+					+ lname + "&password=" + password + "&faculty=" + faculty;
 
 			// url = URLEncoder.encode(url);
 			return req.requestGetHttp(url);

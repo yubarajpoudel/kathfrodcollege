@@ -30,7 +30,18 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="full name please"
+        android:hint="first name please"
+        android:background="@drawable/edittext_bg"
+        android:layout_margin="10dp"
+        android:ems="20" >
+
+        
+    </EditText>
+     <EditText
+        android:id="@+id/lname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="last name please"
         android:background="@drawable/edittext_bg"
         android:layout_margin="10dp"
         android:ems="20" >

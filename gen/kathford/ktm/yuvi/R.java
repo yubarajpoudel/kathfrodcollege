@@ -104,12 +104,12 @@ public final class R {
         public static final int menu=0x7f080002;
     }
     public static final class string {
-        public static final int DirectoryTitle=0x7f060011;
-        public static final int DownloadTitle=0x7f06000f;
-        public static final int HomeActitvitytitle=0x7f06000d;
-        public static final int LibraryTitle=0x7f060010;
-        public static final int NewsEventTitle=0x7f06000e;
-        public static final int Register=0x7f060012;
+        public static final int DirectoryTitle=0x7f060012;
+        public static final int DownloadTitle=0x7f060010;
+        public static final int HomeActitvitytitle=0x7f06000e;
+        public static final int LibraryTitle=0x7f060011;
+        public static final int NewsEventTitle=0x7f06000f;
+        public static final int Register=0x7f060013;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int category=0x7f060003;
@@ -119,10 +119,11 @@ public final class R {
         public static final int course3=0x7f060006;
         public static final int course4=0x7f060007;
         public static final int course5=0x7f060008;
-        public static final int title1=0x7f060009;
-        public static final int title2=0x7f06000a;
-        public static final int title3=0x7f06000b;
-        public static final int title4=0x7f06000c;
+        public static final int course6=0x7f060009;
+        public static final int title1=0x7f06000a;
+        public static final int title2=0x7f06000b;
+        public static final int title3=0x7f06000c;
+        public static final int title4=0x7f06000d;
     }
     public static final class style {
         /** 
