@@ -1,0 +1,100 @@
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent"
+         
+         android:background="@drawable/main_bg" >
+<LinearLayout 
+    android:id="@+id/LinearLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+ 
+  
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/kath_img" 
+        android:layout_margin="10dp"
+        />
+
+
+  
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KATHFORD ENGINEERING COLLEGE"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_margin="10dp" 
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Founded in 2003, Kathford is a college specializing in Engineering, Business, Computer Science and IT. Kathford is affiliated to Tribhuvan University, Nepal. With the modern infrastructure, 3 engineering, 1 business administration, and 1 computer science and IT degree programs."
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:layout_margin="10dp" 
+        android:textColor="#ffff00"/>
+   
+   <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "@string/contact"
+        android:textColor="#ff0000"
+        android:layout_weight="2"
+        android:layout_margin="10dp"
+        
+         />
+   <LinearLayout 
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+    
+    
+    <Button
+        android:id="@+id/callEng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#006400"
+        android:layout_margin="10dp"
+        android:text="Engineering Block"
+        android:clickable="true"
+         />
+    <Button
+        android:id="@+id/callBba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#006400"
+        android:layout_margin="10dp"
+        android:text="BBA BLOCK"
+        android:clickable="true"
+         />
+    
+    
+</LinearLayout>    
+</LinearLayout>
+<TextView 
+        android:id="@+id/weblink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="visit to college website"
+        android:clickable="true"
+        android:textColor="#9400d3"
+        android:hint="college website"
+        android:layout_marginLeft="100dp"/>  
+</LinearLayout>
+</ScrollView>

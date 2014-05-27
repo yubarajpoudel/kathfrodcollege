@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kathford</string>
+    <string name="action_settings">Settings</string>
+    <string name="contact">Ring Road, Balkumari Chowk, Lalitpur\nPhone: 01-5201241, 5201911\nemail: info@kathford.edu.np</string>
+    <string name="category">Courses</string>
+    <string name="course1">B.E-Computer</string>
+    <string name="course2">B.E-Electronic </string>
+    <string name="course3">B.E-Civil</string>
+    <string name="course4">BBA</string>
+    <string name="course5">BScCSIT</string>
+    <string name="title1">Events</string>
+    <string name="title2">Download</string>
+    <string name="title3">Directory</string>
+    <string name="title4">Library</string>
+    <string name="HomeActitvitytitle">STUDENTS ROOM</string>
+    <string name ="NewsEventTitle"> NEWS EVENT</string>
+    <string name="DownloadTitle">DOWNLOAD</string>
+    <string name="LibraryTitle">MANAGE LIBRARY</string>
+    <string name="DirectoryTitle">DIRECTORY</string>
+    <string name = "Register">REGISTER HERE</string>
+</resources>

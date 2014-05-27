@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+ 
+    <include layout="@layout/header"/>
+ 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="6dip" >
+ 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+ 
+            <Button
+                android:id="@+id/newsevent"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/newsevent"
+                android:onClick="onButtonClicker"
+                android:text="@string/title1" />
+ 
+            <Button
+                android:id="@+id/directory"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/ic_menu_example"
+                android:onClick="onButtonClicker"
+                android:text="@string/title3" />
+        </LinearLayout>
+ 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+ 
+            <Button
+                android:id="@+id/download"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/download"
+                android:onClick="onButtonClicker"
+                android:text="@string/title2" />
+ 
+            <Button
+                android:id="@+id/library"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/addbook"
+                android:onClick="onButtonClicker"
+                android:text="@string/title4" />
+        </LinearLayout>
+ 
+       
+    </LinearLayout>
+</LinearLayout>
