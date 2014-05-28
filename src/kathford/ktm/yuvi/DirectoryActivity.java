@@ -10,11 +10,15 @@ import org.json.JSONObject;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
@@ -27,6 +31,7 @@ public class DirectoryActivity extends BaseActivity {
 	public class CallDetails {
 		String fname;
 		String lname;
+		String subject;
 		String phone; 
 	}
 
@@ -50,6 +55,7 @@ public class DirectoryActivity extends BaseActivity {
 				// News s = new News();
 				CallDetails s = calllist.get(position);
 				// ((TextView)findViewById(R.id.booknum)).setText(Integer.toString(position));
+				
 				TextView firstname = (TextView) convertView
 						.findViewById(R.id.fname);
 				firstname.setText(s.fname);
@@ -59,6 +65,9 @@ public class DirectoryActivity extends BaseActivity {
 				TextView phoned = (TextView) convertView
 						.findViewById(R.id.teachphone);
 				phoned.setText(s.phone);
+				TextView faculty = (TextView) convertView
+						.findViewById(R.id.faculty1);
+				faculty.setText(s.subject);
 				//TextView phones = (TextView) findViewById(R.id.teach_phone);
 				//phones.setText(s.phone);
 				//((TextView) findViewById(R.id.teach_phone)).setText(s.phone);
@@ -68,6 +77,21 @@ public class DirectoryActivity extends BaseActivity {
 		};
 		ListView list = (ListView) findViewById(R.id.callist);
 		list.setAdapter(adapter);
+		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int postion, long arg3) {
+				
+				CallDetails a = calllist.get(postion);
+				String tmp = "tel:" + a.phone; //text is the customer care number
+				Intent callIntent = new Intent(Intent.ACTION_CALL);
+				callIntent.setData(Uri.parse(tmp));
+				startActivity(callIntent);
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
 
 		new AttemptShow().execute();
 
@@ -109,6 +133,7 @@ public class DirectoryActivity extends BaseActivity {
 					resultrow.fname = jsondata.getString("fname");
 					resultrow.lname = jsondata.getString("lname");
 					resultrow.phone = jsondata.getString("phone");
+					resultrow.subject = jsondata.getString("faculty");
 					calllist.add(resultrow);
 				}
 				Log.i("DataNo", "Total size = " + jArray.length());

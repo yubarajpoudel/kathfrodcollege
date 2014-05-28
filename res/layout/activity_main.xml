@@ -27,7 +27,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="KATHFORD ENGINEERING COLLEGE"
+        android:text="KATHFORD COLLEGE OF ENGINEERING AND BUISNESS MANAGEMENT"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_margin="10dp" 
