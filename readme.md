@@ -7,8 +7,8 @@ updates and information in the instant time.
 
 Designed and Developed By
 -------------------------
-* Bachelor Of computer Engineering I/II*
-** Kathford Engineering College **
+* Bachelor Of computer Engineering I/II
+* Kathford Engineering College 
 
 Ways To Work With:
 * Download the SQL file and import it.
