@@ -24,10 +24,8 @@ API Used In this Project
 
 **Register.php**
 
-
-
-
 <?php
+
 	$mycon=mysql_connect("localhost","root","root") or die('{"res":"Database Error"}');
 	$mydb=mysql_select_db("kathford") or die('{"res":"Database Error"}');
 	$action = (isset($_GET['action'])?($_GET['action']):"list");
@@ -43,7 +41,6 @@ API Used In this Project
 					$row_array['faculty'] = $rows['faculty'];
 					$row_array['isactive'] = $rows['isactive'];
 				    $row_array['created'] = $rows['created'];
-
 				array_push($json_array,$row_array);	
 			}
 			$json_result['res'] = 'success';
