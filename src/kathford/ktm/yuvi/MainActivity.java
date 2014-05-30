@@ -1,17 +1,23 @@
 package kathford.ktm.yuvi;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import kathfrod.ktm.yuvi.lib.ServerRequest;
+import kathfrod.ktm.yuvi.pushnitify.ConnectionDetector;
 
 import org.json.JSONObject;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,26 +27,48 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 public class MainActivity extends BaseActivity {
 
 	TextView link;
 	Button engcal;
 	Button bbacal;
+	 ConnectionDetector cd;
 	// for dialogue box
 	// private ProgressDialog pDialog;
 	// creating the json parser class
 	// JSONParser jsonParser = new JSONParser();
 
 	// JSON element for responds of php scripts
+	 
+	 //private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+	 public static final String EXTRA_MESSAGE = "message";
+	 public static final String PROPERTY_REG_ID = "registration_id";
+	 private static final String PROPERTY_APP_VERSION = "appVersion";
+	 private static final String TAG = "GCMRelated";
+	 GoogleCloudMessaging gcm;
+	 AtomicInteger msgId = new AtomicInteger();
+	 String regid;
+	 
 	private static final String KEY_RESPONSE = "res";
 	private static final String TAG_SUCCESS = "success";
 	private static final String LOGIN_URL = "http://www.yubrajpoudel.com.np/register.php?action=";
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		gcm = GoogleCloudMessaging.getInstance(getApplicationContext());
+        regid = getRegistrationId(getApplicationContext());
+	    cd = new ConnectionDetector(getApplicationContext());
+		 
+	        // Check if Internet present
+	        if (!cd.isConnectingToInternet()) {
+	            // Internet Connection is not present
+	           Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+	        }
+	         
 		engcal = (Button) findViewById(R.id.callEng);
 		bbacal = (Button) findViewById(R.id.callBba);
 		link = (TextView) findViewById(R.id.weblink);
@@ -76,6 +104,31 @@ public class MainActivity extends BaseActivity {
 
 			}
 		});
+	}
+
+	private String getRegistrationId(Context applicationContext) {
+		 final SharedPreferences prefs = getGCMPreferences(applicationContext);
+	     String registrationId = prefs.getString(PROPERTY_REG_ID, "");
+	     if (registrationId.isEmpty()) {
+	         Log.i(TAG, "Registration not found.");
+	         return "";
+	     }
+	     // Check if app was updated; if so, it must clear the registration ID
+	     // since the existing regID is not guaranteed to work with the new
+	     // app version.
+	    // int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
+	    // int currentVersion = getAppVersion(getApplicationContext());
+	    // if (registeredVersion != currentVersion) {
+	       //  Log.i(TAG, "App version changed.");
+	        // return "";
+	     //}
+	     return registrationId;
+		
+	}
+
+	private SharedPreferences getGCMPreferences(Context applicationContext) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
