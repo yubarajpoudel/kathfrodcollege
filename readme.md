@@ -21,7 +21,9 @@ Download the php Folder:
 
 API Used In this Project 
 ------------------
-//register.php
+
+**Register.php**
+
 
 
 
