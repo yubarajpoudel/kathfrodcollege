@@ -7,6 +7,8 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import kathfrod.ktm.yuvi.lib.Constants;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -18,6 +20,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Download extends Activity {
 
@@ -31,7 +35,6 @@ public class Download extends Activity {
 	public static final int progress_bar_type = 0; 
 	
 	// File url to download
-	private static String file_url = "http://api.androidhive.info/progressdialog/hive.jpg";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class Download extends Activity {
 		// show progress bar button
 		btnShowProgress = (Button) findViewById(R.id.btnProgressBar);
 		// Image view to show image after downloading
-		my_image = (ImageView) findViewById(R.id.my_image);
+		//my_image = (ImageView) findViewById(R.id.my_image);
 		/**
 		 * Show Progress bar click event
 		 * */
@@ -49,8 +52,13 @@ public class Download extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				
+				String course = ((Spinner) findViewById(R.id.courses)).getSelectedItem().toString().trim();
+				String category =((Spinner)findViewById(R.id.catg)).getSelectedItem().toString().trim();
+				String semester =((Spinner)findViewById(R.id.sems)).getSelectedItem().toString().trim();
+				String url = Constants.file_url+"course="+course+"&category="+category+"&semester="+semester;
 				// starting new Async Task
-				new DownloadFileFromURL().execute(file_url);
+				new DownloadFileFromURL().execute(url);
 			}
 		});
 	}
@@ -153,12 +161,12 @@ public class Download extends Activity {
 		protected void onPostExecute(String file_url) {
 			// dismiss the dialog after the file was downloaded
 			dismissDialog(progress_bar_type);
-			
+			Toast.makeText(getApplicationContext(), "Download Completed", Toast.LENGTH_LONG).show();
 			// Displaying downloaded image into image view
 			// Reading image path from sdcard
-			String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.jpg";
+			//String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.jpg";
 			// setting downloaded into image view
-			my_image.setImageDrawable(Drawable.createFromPath(imagePath));
+			//my_image.setImageDrawable(Drawable.createFromPath(imagePath));
 		}
 
 	}

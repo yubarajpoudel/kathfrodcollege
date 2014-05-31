@@ -5,5 +5,7 @@ public class Constants {
 	public static final String TAG_SUCCESS = "success";
 	public static final String DLOGIN_URL =  "http://www.yubrajpoudel.com.np/register.php?action=directory";
 	public static final String LOGIN_URL =  "http://www.yubrajpoudel.com.np/register.php?action=newsfeed";
+	public static String file_url = "http://www.yubrajpoudel.com.np/register.php?action=download&";
+
 	
 }

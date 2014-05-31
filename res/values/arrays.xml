@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string-array name="CourseList">
         <item>@string/course1</item>
@@ -7,6 +8,24 @@
         <item>@string/course5</item>
         <item>@string/course6</item>
     </string-array>
+     <string-array name="Category">
+        <item>IOEresult</item>
+        <item>RegularExamNotice</item>
+        <item>BackExamNotice</item>
+        <item>ClassRoutine</item>
+     </string-array>
+     
+     <string-array name="semesters">
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+         <item>I</item>
+      </string-array>
+ 
     
     
 </resources>

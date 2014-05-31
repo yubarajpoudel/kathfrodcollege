@@ -3,17 +3,59 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    <!-- Download Button -->
-    <Button android:id="@+id/btnProgressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Download File with Progress Bar"
-        android:layout_marginTop="50dip"/>
     
     <!-- Image view to show image after downloading -->
-    <ImageView android:id="@+id/my_image"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+    
+   <TextView  
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Choose The Course"
+       android:layout_margin="10dp"
+       android:textColor="#0000CD"
+       android:textStyle="bold"/>
+    <Spinner 
+        android:id="@+id/courses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:entries="@array/CourseList"/>
+    <TextView  
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Select The Category"
+       android:textColor="#0000CD"
+       android:layout_margin="10dp"
+       android:textStyle="bold"/>
+     <Spinner 
+        android:id="@+id/catg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:entries="@array/Category"/>
+     <TextView  
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Select The Semester"
+       android:textColor="#0000CD"
+       android:layout_margin="10dp"
+       android:textStyle="bold"/>
+      <Spinner 
+        android:id="@+id/sems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:entries="@array/semesters"/>
+    
+    <!-- Download Button -->
+
+    <Button
+        android:id="@+id/btnProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
+        android:layout_gravity="bottom"
+        android:text="Download" />
+    
+   
 
 </LinearLayout>
