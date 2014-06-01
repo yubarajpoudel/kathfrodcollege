@@ -43,50 +43,56 @@
         android:layout_margin="10dp" 
         android:textColor="#ffff00"/>
    
-   <LinearLayout 
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/tt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text= "@string/contact"
-        android:textColor="#ff0000"
-        android:layout_weight="2"
-        android:layout_margin="10dp"
         
-         />
-   <LinearLayout 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       >
+        
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           android:background="#0000FF"
+           android:layout_margin="10dp">
+            <TextView 
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/contact"
+                android:textColor="#FFFFFF"
+                android:layout_weight="3"/>
+            <ImageButton 
+                android:id="@+id/callEng"
+                android:src="@drawable/ic_action_call"
+                android:background="#008000"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="10dp"/>
+            
+        </LinearLayout>
+        
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000FF"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            
+        <TextView 
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/contacts"
+                android:textColor="#FFFFFF"
+                android:layout_weight="3"/>
+            <ImageButton 
+                android:id="@+id/callBBA"
+                android:src="@drawable/ic_action_call"
+                android:background="#008000"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="10dp"/>    
+        
+        </LinearLayout>
+        
+        
+        
     
-    
-    <Button
-        android:id="@+id/callEng"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#006400"
-        android:layout_margin="10dp"
-        android:text="Engineering Block"
-        android:clickable="true"
-         />
-    <Button
-        android:id="@+id/callBba"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#006400"
-        android:layout_margin="10dp"
-        android:text="BBA BLOCK"
-        android:clickable="true"
-         />
-    
-    
-</LinearLayout>    
-</LinearLayout>
+   
+  
 <TextView 
         android:id="@+id/weblink"
         android:layout_width="match_parent"
@@ -96,5 +102,6 @@
         android:textColor="#9400d3"
         android:hint="college website"
         android:layout_marginLeft="100dp"/>  
+        
 </LinearLayout>
 </ScrollView>

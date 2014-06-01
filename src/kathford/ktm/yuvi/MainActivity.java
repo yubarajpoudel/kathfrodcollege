@@ -3,6 +3,7 @@ package kathford.ktm.yuvi;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import kathfrod.ktm.yuvi.lib.ServerRequest;
+import kathfrod.ktm.yuvi.pushnitify.AlertDialogManager;
 import kathfrod.ktm.yuvi.pushnitify.ConnectionDetector;
 
 import org.json.JSONObject;
@@ -19,8 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,8 +30,8 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 public class MainActivity extends BaseActivity {
 
 	TextView link;
-	Button engcal;
-	Button bbacal;
+	ImageButton engcal;
+	ImageButton bbacal;
 	ConnectionDetector cd;
 	// for dialogue box
 	// private ProgressDialog pDialog;
@@ -42,8 +43,8 @@ public class MainActivity extends BaseActivity {
 	// private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 	public static final String EXTRA_MESSAGE = "message";
 	public static final String PROPERTY_REG_ID = "registration_id";
-	//private static final String PROPERTY_APP_VERSION = "appVersion";
-	//private static final String TAG = "GCMRelated";
+	// private static final String PROPERTY_APP_VERSION = "appVersion";
+	// private static final String TAG = "GCMRelated";
 	GoogleCloudMessaging gcm;
 	AtomicInteger msgId = new AtomicInteger();
 	String regid;
@@ -62,12 +63,13 @@ public class MainActivity extends BaseActivity {
 		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
 			// Internet Connection is not present
-			Toast.makeText(getApplicationContext(), "No internet connection",
-					Toast.LENGTH_LONG).show();
+			AlertDialogManager alert = new AlertDialogManager();
+			alert.showAlertDialog(MainActivity.this, "Turn on WiFi",
+					"No Internet Connection", false);
 		}
 
-		engcal = (Button) findViewById(R.id.callEng);
-		bbacal = (Button) findViewById(R.id.callBba);
+		engcal = (ImageButton) findViewById(R.id.callEng);
+		bbacal = (ImageButton) findViewById(R.id.callBBA);
 		link = (TextView) findViewById(R.id.weblink);
 		engcal.setOnClickListener(new OnClickListener() {
 
@@ -154,6 +156,7 @@ public class MainActivity extends BaseActivity {
 										 * print("Invalid id or password"); }
 										 */
 										new AttemptLogin(name, pass).execute();
+
 									} else {
 										Toast.makeText(getApplicationContext(),
 												"field cannot be empty ",
@@ -217,6 +220,8 @@ public class MainActivity extends BaseActivity {
 					if (jObj.get("isactive").equals("1")) {
 						startActivity(new Intent(getApplicationContext(),
 								StudentRoomActivity.class));
+						
+
 					} else {
 						print("Your request is in pending");
 					}

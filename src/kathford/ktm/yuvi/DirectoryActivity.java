@@ -100,7 +100,7 @@ public class DirectoryActivity extends BaseActivity {
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		ProgressDialog dialog = new ProgressDialog(this);
-		dialog.setMessage("Loading New Events....");
+		dialog.setMessage("Loading Directory List....");
 		return dialog;
 	}
 

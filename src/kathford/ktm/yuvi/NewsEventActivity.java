@@ -14,16 +14,19 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class NewsEventActivity extends BaseActivity {
 	ArrayList<News> newsfeed;
 	BaseAdapter adapter;
-
+    int skip=0;
+    boolean request=false;
 	public class News {
 		String Message;
 		String dates;
@@ -62,7 +65,21 @@ public class NewsEventActivity extends BaseActivity {
 		ListView list = (ListView) findViewById(R.id.eventlist);
 		list.setAdapter(adapter);
 
-		new AttemptShow().execute();
+		new AttemptShow(skip).execute();
+		
+		((Button) findViewById(R.id.loadmore)).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				request=true;
+				if(request)
+				{
+				skip=skip+10;
+				new AttemptShow(skip).execute();
+				}
+			}
+		});
 
 	}
 
@@ -74,6 +91,13 @@ public class NewsEventActivity extends BaseActivity {
 	}
 
 	class AttemptShow extends AsyncTask<String, String, String> {
+		
+		private int skips;
+
+		public  AttemptShow(int skips)
+		{
+			this.skips=skips;
+		}
 		@SuppressWarnings("deprecation")
 		@Override
 		protected void onPreExecute() {
@@ -83,8 +107,9 @@ public class NewsEventActivity extends BaseActivity {
 
 		@Override
 		protected String doInBackground(String... arg0) {
+			String path = Constants.LOGIN_URL+skips;
 			ServerRequest req = new ServerRequest();
-			return req.requestGetHttp(Constants.LOGIN_URL);
+			return req.requestGetHttp(path);
 		}
 
 		@SuppressWarnings("deprecation")
@@ -110,6 +135,7 @@ public class NewsEventActivity extends BaseActivity {
 				e.printStackTrace();
 			}
 			adapter.notifyDataSetChanged();
+			request=false;
 		}
 
 	}

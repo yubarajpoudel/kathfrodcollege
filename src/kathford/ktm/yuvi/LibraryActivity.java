@@ -54,6 +54,7 @@ public class LibraryActivity extends BaseActivity {
 		};
 		ListView list = (ListView) findViewById(R.id.booklist);
 		list.setAdapter(adapter);
+		adapter.notifyDataSetChanged();
 
 		list.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override

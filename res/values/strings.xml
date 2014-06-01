@@ -3,7 +3,12 @@
 
     <string name="app_name">Kathford</string>
     <string name="action_settings">Settings</string>
-    <string name="contact">Ring Road, Balkumari Chowk, Lalitpur\nPhone: 01-5201241, 5201911\nemail: info@kathford.edu.np</string>
+    <string name="contact">Engineering and Admin Block
+Ring Road, Balkumari Chowk
+email: info@kathford.edu.np</string>
+<string name="contacts">BBA and B.Sc. CSIT Block
+Ring Road, Way to Chyasal from Balkumari Chowk
+</string>
     <string name="category">Courses</string>
     <string name="course1">B.E-Computer</string>
     <string name="course2">B.E-Electronic </string>

@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="kathford.ktm.yuvi.MainActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,19 +27,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity  android:name=".CollegeWebsite"/>
+        <activity  android:name=".CollegeWebsite"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name="kathford.ktm.yuvi.StudentRoomActivity"/>
+            android:name="kathford.ktm.yuvi.StudentRoomActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name=".NewstudentRegister"/>
+            android:name=".NewstudentRegister"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name=".LibraryActivity"/>
+            android:name=".LibraryActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name=".NewsEventActivity"/>
+            android:name=".NewsEventActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name=".Download"/>
+            android:name=".Download"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
          <activity
-            android:name=".DirectoryActivity"/>
+            android:name=".DirectoryActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden|screenSize"/>
         </application>
 
 </manifest>
